@@ -5,11 +5,17 @@ import Menu from "../pages/Menu";
 import Order from "../pages/Order";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import ScrollToTop from "../components/ScrollToTop";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: (
+      <>
+        <Main></Main>
+        <ScrollToTop></ScrollToTop>
+      </>
+    ),
     children: [
       {
         path: "/",
@@ -29,7 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
       },
     ],
   },
