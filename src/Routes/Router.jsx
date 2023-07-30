@@ -6,6 +6,8 @@ import Order from "../pages/Order";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import ScrollToTop from "../components/ScrollToTop";
+import Dashboard from "../layouts/Dashboard";
+import MyCart from "../Dashboard/MyCart";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,16 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "my-cart",
+        element: <MyCart></MyCart>,
       },
     ],
   },
