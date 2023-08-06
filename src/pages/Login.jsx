@@ -11,6 +11,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SocialLogin from "../components/SocialLogin";
 
 const Login = () => {
   const [captchaText, setCaptchaText] = useState("");
@@ -34,7 +35,6 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     signIn(email, password)
       .then((userCredential) => {
@@ -82,7 +82,7 @@ const Login = () => {
               et a id nisi.
             </p>
           </div>
-          <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100 lg:w-1/2">
+          <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100 lg:w-1/2 pb-4">
             <form onSubmit={handleLogin} className="card-body">
               <h1 className="text-5xl font-bold">Login here!</h1>
               <div className="form-control">
@@ -137,13 +137,14 @@ const Login = () => {
                 />
               </div>
               <ToastContainer />
-              <p className="text-center mt-2">
+              {/* <p className="text-center mt-2">
                 New here?{" "}
                 <Link to={"/signup"}>
                   <span className="underline">Register</span>
                 </Link>
-              </p>
+              </p> */}
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

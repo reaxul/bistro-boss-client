@@ -8,6 +8,8 @@ import SignUp from "../pages/SignUp";
 import ScrollToTop from "../components/ScrollToTop";
 import Dashboard from "../layouts/Dashboard";
 import MyCart from "../Dashboard/MyCart";
+import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../Dashboard/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -44,16 +46,17 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: (
-      <>
+      <PrivateRoute>
         <ScrollToTop></ScrollToTop>
         <Dashboard></Dashboard>
-      </>
+      </PrivateRoute>
     ),
     children: [
       {
         path: "my-cart",
         element: <MyCart></MyCart>,
       },
+      { path: "all-users", element: <AllUsers></AllUsers> },
     ],
   },
 ]);
