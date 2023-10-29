@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Loading from "../components/Loading";
 
 const AllUsers = () => {
 
@@ -37,7 +38,7 @@ const AllUsers = () => {
         <title>Bistro Boss | All Users</title>
       </Helmet>
       <h3 className="font-bold text-3xl">Total Users: {users.length}</h3>
-      <div className="overflow-x-auto">
+      {users.length?<div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -79,7 +80,7 @@ const AllUsers = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </div>:<Loading></Loading>}
     </div>
   );
 };

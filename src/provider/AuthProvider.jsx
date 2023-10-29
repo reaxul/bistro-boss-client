@@ -10,6 +10,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null); //why should we use null? things to know!
 const auth = getAuth(app);
@@ -47,14 +48,20 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("current user", currentUser);
+      if (currentUser) {
+        axios.post('http://localhost:5000/jwt',{email:currentUser.email})
+      }
       setLoading(false);
     });
+
     return () => {
       return unsubscribe();
     };
+
   }, []);
 
   const authInfo = {
