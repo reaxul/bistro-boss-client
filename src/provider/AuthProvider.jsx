@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       console.log("current user", currentUser);
       if (currentUser) {
-        axios.post('http://localhost:5000/jwt',{email:currentUser.email})
+        axios.post('https://bistro-boss-server-three-gamma.vercel.app/jwt',{email:currentUser.email})
       }
       setLoading(false);
     });
